@@ -23,10 +23,14 @@ def completarTableroEnOrden(secuencia, tablero):
             soltarFichaEnColumna(2, secuencia[turno], tablero)
     return tablero
 
-       
 def dibujarTablero(tablero):
-    print(tablero[0][0], end=" ")
-
+    for fila in tablero:
+        for celda in fila:
+            if celda == 0:
+                print(" ", end="")
+            else:
+                print("%s" %celda, end=" ")
+        print("")
 dibujarTablero(
     completarTableroEnOrden(
         secuencia, tableroVacio()
