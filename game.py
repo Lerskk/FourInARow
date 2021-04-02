@@ -31,6 +31,14 @@ def dibujarTablero(tablero):
             else:
                 print("%s" %celda, end=" ")
         print("")
+
+def validSequence(secuencia):
+    for se in len(secuencia):
+        if secuencia[se] > 7:
+            print("Secencia invalida")
+        else:
+            return True
+
 dibujarTablero(
     completarTableroEnOrden(
         secuencia, tableroVacio()
