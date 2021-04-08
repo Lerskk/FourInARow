@@ -1,4 +1,4 @@
-secuencia = [1, 2, 3, 1]
+secuencia = [1, 2, 3, 1, 8]
 def tableroVacio():
     return[
         [0, 0, 0, 0, 0, 0, 0],
@@ -33,14 +33,13 @@ def dibujarTablero(tablero):
         print("")
 
 def validSequence(secuencia):
-    for se in len(secuencia):
-        if secuencia[se] > 7:
-            print("Secencia invalida")
-        else:
-            return True
+    for se in secuencia:
+        if se < 1 or se > 7:
+            return False
+    else:
+        return True
 
-dibujarTablero(
-    completarTableroEnOrden(
-        secuencia, tableroVacio()
-    )
-)
+if  validSequence(secuencia):
+    dibujarTablero(completarTableroEnOrden(secuencia, tableroVacio() ) )
+else:
+    print("La sequencia es invalida")
