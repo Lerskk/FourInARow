@@ -1,4 +1,4 @@
-secuencia = [1, 2, 3, 1, 8]
+secuencia = [1, 2, 3, 1]
 def tableroVacio():
     return[
         [0, 0, 0, 0, 0, 0, 0],
@@ -8,6 +8,29 @@ def tableroVacio():
         [0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0],
     ]
+
+def contenidoColumna(numColumna, tablero):
+    columna = []
+    for fila in tablero:
+        celda = fila[numColumna - 1]
+        columna.append(celda)
+    return columna
+
+def contenidoFila(numFila, tablero):
+    fila = []
+    for columna in tablero:
+        celda = columna[numFila - 1]
+        fila.append(celda)
+    return fila
+
+def allColumnas(tablero):
+    allColumna = []
+    for i in range(1, 8):
+        allColumna.append(contenidoColumna(i, tablero))
+    return allColumna
+
+def allFilas(tablero):
+    return tablero
 
 def soltarFichaEnColumna(ficha, columna, tablero):
     for fila in range (6, 0, -1):
@@ -25,11 +48,12 @@ def completarTableroEnOrden(secuencia, tablero):
 
 def dibujarTablero(tablero):
     for fila in tablero:
+        print(" ", end="")
         for celda in fila:
             if celda == 0:
-                print(" ", end="")
+                print("", end="")
             else:
-                print("%s" %celda, end=" ")
+                print("%s " %celda, end=" ")
         print("")
 
 def validSequence(secuencia):
@@ -39,7 +63,14 @@ def validSequence(secuencia):
     else:
         return True
 
+tablero = []
 if  validSequence(secuencia):
-    dibujarTablero(completarTableroEnOrden(secuencia, tableroVacio() ) )
+    tablero = completarTableroEnOrden(secuencia, tableroVacio())
+    dibujarTablero(tablero)
 else:
     print("La sequencia es invalida")
+
+print(contenidoColumna(2, tablero))
+print(contenidoFila(1, tablero))
+print(allColumnas(tablero))
+print(allFilas(tablero))
