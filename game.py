@@ -48,13 +48,19 @@ def completarTableroEnOrden(secuencia, tablero):
 
 def dibujarTablero(tablero):
     for fila in tablero:
-        print(" ", end="")
+        print("|", end="")
         for celda in fila:
             if celda == 0:
-                print("", end="")
+                print("   ", end="")
             else:
                 print("%s " %celda, end=" ")
-        print("")
+        print("|")
+    for i in range(0, 23):
+        if i == 0 or i == 22:
+            print("+", end="")
+        else:
+            print("-", end="")
+    print("\n")
 
 def validSequence(secuencia):
     for se in secuencia:
