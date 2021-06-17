@@ -1,7 +1,8 @@
-secuencia_texto = input("Ingrese la secuencia de numeros: ")
-secuencia = []
-for items in secuencia_texto.split(','):
-    secuencia.append(int(items))
+# secuencia_texto = input("Ingrese la secuencia de numeros: ")
+# secuencia = []
+# for items in secuencia_texto.split(','):
+#     secuencia.append(int(items))
+secuencia = [1, 2, 3]
 
 def tableroVacio():
     return[
@@ -21,11 +22,7 @@ def contenidoColumna(numColumna, tablero):
     return columna
 
 def contenidoFila(numFila, tablero):
-    fila = []
-    for columna in tablero:
-        celda = columna[numFila - 1]
-        fila.append(celda)
-    return fila
+    return tablero[numFila - 1]
 
 def allColumnas(tablero):
     allColumna = []
